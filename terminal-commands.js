@@ -10,10 +10,17 @@ module.exports.ls = () => {
   });
 };
 
-module.exports.touch = () => {
-  fs
+module.exports.touch = (fileName) => {
+  fs.writeFile(fileName, '', (err) => {
+    if (err) throw err;
+    console.log('The file has been created');
+  } )
 };
 
-module.exports.mkdir = () => {
-  // your code here
+module.exports.mkdir = (dirName) => {
+  let path = './' + dirName;
+  fs.mkdir(path, (err) => {
+    if (err) throw err;
+    console.log('The directory has been created');
+  })
 };
